@@ -1,0 +1,218 @@
+/* form styling */
+/* montserrat google font */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap");
+:root {
+  /* color definition */
+  --theme-bg-clr: #0069ff;
+  --theme-txt-clr: #e7edf2;
+  --dark-clr: #636363;
+  --light-clr: #ffffff;
+  --txt-dark-clr: #212121;
+  --light-dark-clr: rgb(114, 114, 114);
+
+  /* fonts */
+  --main-font: "Montserrat", sans-serif;
+  /* properties definition */
+}
+/* login form */
+.form-content {
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+}
+.d-flex {
+  display: flex;
+}
+.dir-col {
+  flex-direction: column;
+}
+.j-space-between {
+  justify-content: space-between;
+  gap: 20px;
+}
+.a-center {
+  align-items: center;
+}
+.main-form-container {
+  margin-right: auto;
+  margin-left: auto;
+  font-family: var(--main-font);
+  background-color: var(--light-clr);
+  width: fit-content;
+  padding: 20px;
+  backdrop-filter: blur(23px) saturate(164%);
+  -webkit-backdrop-filter: blur(23px) saturate(164%);
+  border-radius: 12px;
+  border: 1px solid rgba(209, 213, 219, 0.3);
+  background: #ffffff;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 0px 8px;
+}
+.sign-in-header-container {
+  font-family: var(--main-font);
+  font-size: 1em;
+  font-weight: 400;
+  color: var(--dark-clr);
+}
+.sign-in-header {
+  font-weight: 500;
+  font-size: 1.5em;
+  color: #04060a;
+}
+
+.login-form input[type="text"],
+input[type="password"] {
+  width: 300px;
+  padding: 5px;
+  font-family: var(--main-font);
+  font-size: 1em;
+}
+.login-form label {
+  font-size: 1em;
+  font-weight: 500;
+  color: var(--dark-clr);
+}
+.forgot-pass a {
+  text-decoration: none;
+  color: #0069ff;
+  font-size: 1em;
+}
+.login-btn button {
+  appearance: none;
+  width: 300px;
+  background-color: var(--theme-bg-clr);
+  color: var(--theme-txt-clr);
+  font-size: 1em;
+  font-weight: 500;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 2px;
+  cursor: pointer;
+  outline: inherit;
+  opacity: 0.95;
+}
+.login-btn button:hover,
+button:focus {
+  opacity: 1;
+}
+
+/* dashboard */
+.admin-dashboard-container {
+  font-family: var(--main-font);
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+.dashboard-header {
+  background-color: var(--theme-bg-clr);
+  color: var(--theme-txt-clr);
+  text-align: center;
+  font-weight: 500;
+}
+.dashboard-container {
+  width: 100%;
+  padding: 10px;
+}
+.dashboard-container-2 {
+  border: #0069ff;
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  border-radius: 11px;
+  background: linear-gradient(145deg, #ffffff, #dedede);
+  box-shadow: 4px 4px 7px #d2d2d2, -4px -4px 7px #ffffff;
+  transition: all 0.2s linear;
+  cursor: pointer;
+}
+.dashboard-container-2:hover {
+  /* transform: scale(1.01); */
+  border-radius: 8px;
+  background: linear-gradient(145deg, #ffffff, #dedede);
+  box-shadow: 9px 9px 18px #bcbcbc, -9px -9px 18px #ffffff;
+}
+.dash-button {
+  max-width: 200px;
+}
+.dash-add-group-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 10px;
+  align-items: center;
+}
+.dash-add-group-btn a {
+  font-size: 18px;
+}
+a.dash-link-btn1,
+a.dash-link-btn2 {
+  text-decoration: none;
+}
+a.dash-link-btn1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  color: var(--light-dark-clr);
+  font-size: 20px;
+  height: 50px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: #006aff2e;
+}
+a.dash-link-btn2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  color: var(--light-dark-clr);
+  font-size: 20px;
+  background-color: #006aff2e;
+  border-radius: 2px;
+}
+a.dash-link-btn2:hover,
+a.dash-link-btn1:hover {
+  background-color: #006aff5f;
+}
+.badge-container {
+  font-size: 24px;
+  color: var(--light-dark-clr);
+  font-weight: 600;
+  display: grid;
+  place-items: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+.table_links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 50px;
+  border-radius: 11px;
+  border-radius: 11px;
+  background: linear-gradient(145deg, #ffffff, #dedede);
+  box-shadow: 4px 4px 7px #d2d2d2, -4px -4px 7px #ffffff;
+  padding: 15px;
+}
+.panel-body {
+  min-width: fit-content;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 20px;
+  border: none;
+}
+.dash-description {
+  font-family: var(--main-font);
+  color: var(--txt-dark-clr);
+  font-size: 16px;
+  font-weight: 500;
+}
+@media screen and (max-width: 412px) {
+  /* login form */
+  .login-form input[type="text"],
+  input[type="password"],
+  .login-btn button {
+    width: 250px;
+  }
+  .form-content {
+    font-size: 1.2rem;
+  }
+}

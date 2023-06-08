@@ -1,0 +1,46 @@
+require("database/db_connect.php");
+	mysqli_set_charset($con, 'utf8');
+	$sql = "SELECT * FROM $table ORDER BY id DESC LIMIT 10";
+	if ($result = mysqli_query($con, $sql)) {
+		//count number of rows in query result
+		$rowcount = mysqli_num_rows($result);
+		//if no rows returned show no posts alert
+		if ($rowcount == 0) {
+			# code...
+			echo 'No Posts To Fetch';
+		}
+		//if there are rows available display all the results
+		foreach ($result as $edschoice => $choice) {
+			#get actual blog post data
+			$postid = $choice['blog'];
+			$sql = "SELECT * FROM blogs WHERE id='$postid'";
+			if ($result = mysqli_query($con, $sql)) {
+				# code...
+				foreach ($result as $posts => $postdata) {
+					# code...display actual posts
+					echo '<div class="blog-grids row mb-6">
+			
+			<div class="col-md-7 blog-grid-right">
+
+			<h5 class="">
+			<a href="single.php?id=' .  $postdata['id'] . '">' . $griditem[' postdata'] . '</a>
+			</h5>
+			<div class="sub-meta">
+			<h6>
+				<span>
+					<i class="far fa-clock"></i> ' . $griditem[' postdata'] . '</span>
+			</h6>
+			</div>
+			</div>
+
+			</div>';
+
+
+							
+				}
+			}
+			# code...
+		}
+	}
+
+	mysqli_close($con);

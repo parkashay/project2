@@ -1,0 +1,17 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the  and  formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the courses_init() hook (in hooks/courses.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="courses-faculty_name-<%%VALUE(id)%%>" class="courses-faculty_name"><%%VALUE(faculty_name)%%></td>
+		<td id="courses-faculty_photo-<%%VALUE(id)%%>" class="courses-faculty_photo"><a href="<%%BASE_UPLOAD_PATH%%><%%VALUE(faculty_photo)%%>" data-lightbox="courses-faculty_photo"><img src="thumbnail.php?i=<%%VALUE(faculty_photo)%%>&t=courses&f=faculty_photo&v=tv" class="img-thumbnail"></a></td>
+		<td id="courses-faculty_description-<%%VALUE(id)%%>" class="courses-faculty_description"><%%VALUE(faculty_description)%%></td>
+		<td id="courses-contact-<%%VALUE(id)%%>" class="courses-contact text-right"><%%VALUE(contact)%%></td>
+		<td id="courses-email-<%%VALUE(id)%%>" class="courses-email"><a href="mailto:<%%VALUE(email)%%>" title="<%%VALUE(email)%%>" class="btn btn-default"><i class="glyphicon glyphicon-envelope text-info"></i></a></td>
+		<td id="courses-location_google_map_key-<%%VALUE(id)%%>" class="courses-location_google_map_key"><img src="<%%GOOGLEMAPTHUMB(location_google_map_key)%%>" style="max-width: 50px; max-height: 50px; " ></td>
+		<td id="courses-syllabus-<%%VALUE(id)%%>" class="courses-syllabus"><a href="link.php?t=courses&f=syllabus&i=<%%VALUE(id)%%>" target="_blank" title="<%%VALUE(syllabus)%%>" class="btn btn-default"><i class="glyphicon glyphicon-lg glyphicon-file text-info"></i></a></td>
+		<script>$j(function() {
+			var e_syllabus = '<%%VALUE(syllabus)%%>'; if(e_syllabus == '' || e_syllabus == '&nbsp;') $j(/*<*/ '#courses-syllabus-<%%VALUE(id)%%>' /*>*/).html('');
+		});</script>

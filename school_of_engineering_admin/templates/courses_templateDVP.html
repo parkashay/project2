@@ -1,0 +1,89 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: ID -->
+		<div class="form-group courses-id" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">ID</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(id)%%></div>
+			</div>
+		</div>
+		<!-- Field: Faculty name -->
+		<div class="form-group courses-faculty_name" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Faculty name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(faculty_name)%%></div>
+			</div>
+		</div>
+		<!-- Field: Faculty photo -->
+		<div class="form-group courses-faculty_photo" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Faculty photo</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><script>
+				var faculty_photoSrc1<%%RND1%%>='<%%BASE_UPLOAD_PATH%%><%%VALUE(faculty_photo)%%>';
+				var faculty_photoSrc2<%%RND1%%>='thumbnail.php?t=courses&f=faculty_photo&i=<%%VALUE(faculty_photo)%%>&v=dv'
+			</script>
+			<a href="#" onclick="$j('#faculty_photoImg<%%RND1%%>').attr('src', ($j('#faculty_photoImg<%%RND1%%>').attr('src').search(/thumbnail\.php/) != -1 && faculty_photoSrc1<%%RND1%%> != '<%%BASE_UPLOAD_PATH%%>' ? faculty_photoSrc1<%%RND1%%> : faculty_photoSrc2<%%RND1%%>)); return false;"><img id="faculty_photoImg<%%RND1%%>" src="thumbnail.php?t=courses&f=faculty_photo&i=<%%VALUE(faculty_photo)%%>&v=dv" class="img-thumbnail"></a></div>
+			</div>
+		</div>
+		<!-- Field: Faculty description -->
+		<div class="form-group courses-faculty_description" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Faculty description</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(faculty_description)%%></div>
+			</div>
+		</div>
+		<!-- Field: Contact -->
+		<div class="form-group courses-contact" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Contact</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(contact)%%></div>
+			</div>
+		</div>
+		<!-- Field: Email -->
+		<div class="form-group courses-email" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Email</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(email)%%></div>
+			</div>
+		</div>
+		<!-- Field: Google map iframe -->
+		<div class="form-group courses-location_google_map_key" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Google map iframe</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><img src="<%%GOOGLEMAPTHUMB(location_google_map_key)%%>" style="max-width: 480px;  max-height: 360px; "></div>
+			</div>
+		</div>
+		<!-- Field: Syllabus -->
+		<div class="form-group courses-syllabus" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Syllabus</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><a id="syllabus-link" href="link.php?t=courses&f=syllabus&i=<%%VALUE(id)%%>" target="_blank"><i class="glyphicon glyphicon-lg glyphicon-file" title="<%%VALUE(syllabus)%%>"></i></a><script>jQuery(function() { var e_syllabus = '<%%VALUE(syllabus)%%>'; if(e_syllabus == '' || e_syllabus == '&nbsp;' || e_syllabus == 'blank.gif') jQuery('#syllabus-link').hide(); });</script></div>
+			</div>
+		</div>
+	</fieldset>
+</div>
+<script>
+	$j(function() {
+		// render read-only checkboxes in DVP
+		$j('form input[type=checkbox]:not(.hidden):checked')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-check"></i>');
+		$j('form input[type=checkbox]:not(.hidden):not(:checked)')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-unchecked"></i>')
+	})
+</script>

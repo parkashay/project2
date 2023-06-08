@@ -1,0 +1,18 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the  and  formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the notes_init() hook (in hooks/notes.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="notes-name-<%%VALUE(id)%%>" class="notes-name"><%%VALUE(name)%%></td>
+		<td id="notes-category-<%%VALUE(id)%%>" class="notes-category"><%%VALUE(category)%%></td>
+		<td id="notes-uploaded_by-<%%VALUE(id)%%>" class="notes-uploaded_by"><%%VALUE(uploaded_by)%%></td>
+		<td id="notes-description-<%%VALUE(id)%%>" class="notes-description"><%%VALUE(description)%%></td>
+		<td id="notes-photo-<%%VALUE(id)%%>" class="notes-photo"><a href="<%%BASE_UPLOAD_PATH%%><%%VALUE(photo)%%>" data-lightbox="notes-photo"><img src="thumbnail.php?i=<%%VALUE(photo)%%>&t=notes&f=photo&v=tv" class="img-thumbnail"></a></td>
+		<td id="notes-file_one-<%%VALUE(id)%%>" class="notes-file_one"><a href="link.php?t=notes&f=file_one&i=<%%VALUE(id)%%>" target="_blank" title="<%%VALUE(file_one)%%>" class="btn btn-default"><i class="glyphicon glyphicon-lg glyphicon-file text-info"></i></a></td>
+		<td id="notes-file_two-<%%VALUE(id)%%>" class="notes-file_two"><a href="link.php?t=notes&f=file_two&i=<%%VALUE(id)%%>" target="_blank" title="<%%VALUE(file_two)%%>" class="btn btn-default"><i class="glyphicon glyphicon-lg glyphicon-download-alt text-info"></i></a></td>
+		<script>$j(function() {
+			var e_file_one = '<%%VALUE(file_one)%%>'; if(e_file_one == '' || e_file_one == '&nbsp;') $j(/*<*/ '#notes-file_one-<%%VALUE(id)%%>' /*>*/).html('');
+			var e_file_two = '<%%VALUE(file_two)%%>'; if(e_file_two == '' || e_file_two == '&nbsp;') $j(/*<*/ '#notes-file_two-<%%VALUE(id)%%>' /*>*/).html('');
+		});</script>

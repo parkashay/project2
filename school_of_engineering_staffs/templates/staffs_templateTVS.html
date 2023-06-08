@@ -1,0 +1,15 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the  and  formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the staffs_init() hook (in hooks/staffs.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="staffs-name-<%%VALUE(id)%%>" class="staffs-name"><%%VALUE(name)%%></td>
+		<td id="staffs-title-<%%VALUE(id)%%>" class="staffs-title"><%%VALUE(title)%%></td>
+		<td id="staffs-photo-<%%VALUE(id)%%>" class="staffs-photo"><a href="<%%BASE_UPLOAD_PATH%%><%%VALUE(photo)%%>" data-lightbox="staffs-photo"><img src="thumbnail.php?i=<%%VALUE(photo)%%>&t=staffs&f=photo&v=tv" class="img-thumbnail"></a></td>
+		<td id="staffs-description-<%%VALUE(id)%%>" class="staffs-description"><%%VALUE(description)%%></td>
+		<td id="staffs-research_paper-<%%VALUE(id)%%>" class="staffs-research_paper"><a href="link.php?t=staffs&f=research_paper&i=<%%VALUE(id)%%>" target="_blank" title="<%%VALUE(research_paper)%%>" class="btn btn-default"><i class="glyphicon glyphicon-lg glyphicon-file text-info"></i></a></td>
+		<script>$j(function() {
+			var e_research_paper = '<%%VALUE(research_paper)%%>'; if(e_research_paper == '' || e_research_paper == '&nbsp;') $j(/*<*/ '#staffs-research_paper-<%%VALUE(id)%%>' /*>*/).html('');
+		});</script>
